@@ -1,0 +1,44 @@
+{
+  "include": [
+    "./src",
+    "./types.d.ts",
+    "./eslint.config.js",
+    "./vite.config.js"
+  ],
+  "exclude": [],
+  "compilerOptions": {
+    // type checking
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "exactOptionalPropertyTypes": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noUncheckedIndexedAccess": true,
+    "strict": true,
+
+    // modules
+    "module": "es2022",
+    "moduleResolution": "bundler",
+    "rootDir": ".",
+    "typeRoots": ["./node_modules/@types"],
+    "types": [],
+
+    // emit
+    "outDir": "./dist",
+
+    // javascript support
+    "checkJs": true,
+
+    // interop constraints
+    "verbatimModuleSyntax": true,
+
+    // language and environment
+    "jsx": "react-jsx",
+    "lib": ["es2023", "dom", "dom.iterable"],
+    "moduleDetection": "force",
+    "target": "es2022",
+
+    // completeness
+    "skipLibCheck": true
+  }
+}
