@@ -2,6 +2,7 @@ import type { FC } from "react";
 import { Outlet } from "react-router-dom";
 import NavBar from "./NavBar";
 import { Container, Flex, useMantineTheme } from "@mantine/core";
+import GenresProvider from "./GenresProvider";
 
 const App: FC = () => {
   const theme = useMantineTheme();
@@ -11,7 +12,9 @@ const App: FC = () => {
       <Flex>
         <NavBar />
         <Container fluid p="0" bg={theme.other.colors.grey100} w="100%">
-          <Outlet />
+          <GenresProvider>
+            <Outlet />
+          </GenresProvider>
         </Container>
       </Flex>
     </Container>
