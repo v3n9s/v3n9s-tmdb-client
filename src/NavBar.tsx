@@ -3,7 +3,7 @@ import type { FC } from "react";
 import { Link, matchPath, useLocation, useMatches } from "react-router-dom";
 
 const links = [
-  { name: "Movies", path: "/movies" },
+  { name: "Movies", path: "/movies", pathMatcher: "/movies/:id?" },
   { name: "Rated movies", path: "/favorites" },
 ];
 
@@ -28,7 +28,10 @@ const NavBar: FC = () => {
     isHideNavbar || (
       <Stack p="24" pt="140" flex="280px 0 0" bg={theme.other.colors.purple100}>
         {links.map((v, i) => {
-          const isMatchedPath = matchPath(v.path, location.pathname);
+          const isMatchedPath = matchPath(
+            v.pathMatcher ?? v.path,
+            location.pathname,
+          );
           return (
             <Button
               component={Link}

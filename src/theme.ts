@@ -1,4 +1,10 @@
-import { DEFAULT_THEME, createTheme, mergeMantineTheme } from "@mantine/core";
+import {
+  DEFAULT_THEME,
+  Table,
+  Text,
+  createTheme,
+  mergeMantineTheme,
+} from "@mantine/core";
 import { themeToVars } from "@mantine/vanilla-extract";
 
 const other = {
@@ -25,6 +31,12 @@ type Other = typeof other;
 const t = createTheme({
   fontFamily: "Inter",
   other,
+  components: {
+    Text: Text.extend({ defaultProps: { style: { margin: 0 } } }),
+    TableTd: Table.Td.extend({
+      defaultProps: { style: { borderStyle: "none" } },
+    }),
+  },
 });
 
 export const theme = mergeMantineTheme(DEFAULT_THEME, t);
