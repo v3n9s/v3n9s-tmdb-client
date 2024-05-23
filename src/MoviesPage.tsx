@@ -10,7 +10,7 @@ import {
 import type { DiscoverMovieResponseBody } from "./types";
 import { useRequest } from "./use-request";
 
-const SearchPage: FC = () => {
+const MoviesPage: FC = () => {
   const theme = useMantineTheme();
 
   const request = useMemo(() => new Request(API_URL + "/3/discover/movie"), []);
@@ -39,4 +39,4 @@ const SearchPage: FC = () => {
   );
 };
 
-export default SearchPage;
+export default MoviesPage;

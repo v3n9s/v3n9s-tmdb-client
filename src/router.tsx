@@ -1,6 +1,6 @@
 import { createBrowserRouter, redirect } from "react-router-dom";
 import App from "./App";
-import SearchPage from "./SearchPage";
+import MoviesPage from "./MoviesPage";
 import FavoritesPage from "./FavoritesPage";
 import NotFoundPage from "./NotFoundPage";
 
@@ -10,11 +10,11 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        loader: () => redirect("/search"),
+        loader: () => redirect("/movies"),
       },
       {
-        path: "/search",
-        element: <SearchPage />,
+        path: "/movies",
+        element: <MoviesPage />,
       },
       {
         path: "/favorites",

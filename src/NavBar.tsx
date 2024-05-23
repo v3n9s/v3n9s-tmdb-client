@@ -3,7 +3,7 @@ import type { FC } from "react";
 import { Link, matchPath, useLocation, useMatches } from "react-router-dom";
 
 const links = [
-  { name: "Movies", path: "/search" },
+  { name: "Movies", path: "/movies" },
   { name: "Rated movies", path: "/favorites" },
 ];
 
