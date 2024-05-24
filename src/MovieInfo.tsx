@@ -15,7 +15,7 @@ import {
   Text,
   useMantineTheme,
 } from "@mantine/core";
-import { createPosterLink, formatDate, formatTime } from "./utils";
+import { createImageLink, formatDate, formatTime } from "./utils";
 import MovieCard from "./MovieCard";
 
 const MovieInfo: FC = () => {
@@ -151,7 +151,7 @@ const MovieInfo: FC = () => {
                     <Avatar
                       src={
                         company.logo_path !== null
-                          ? createPosterLink(company.logo_path)
+                          ? createImageLink(company.logo_path)
                           : "/clapperboard.svg"
                       }
                       w="40"

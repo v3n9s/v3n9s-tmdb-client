@@ -10,7 +10,7 @@ import {
 } from "@mantine/core";
 import type { FC, ReactNode } from "react";
 import { Link } from "react-router-dom";
-import { createPosterLink } from "./utils";
+import { createImageLink } from "./utils";
 import Rating from "./Rating";
 import Star from "./Star";
 import type { MovieBase } from "./types";
@@ -41,7 +41,7 @@ const MovieCard: FC<{
           <Image
             src={
               movie.poster_path !== null
-                ? createPosterLink(movie.poster_path)
+                ? createImageLink(movie.poster_path)
                 : "/no-poster.svg"
             }
             h={isBig ? "352" : "170"}

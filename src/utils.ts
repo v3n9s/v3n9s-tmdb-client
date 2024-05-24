@@ -6,8 +6,8 @@ export const getSearchParamsString = (
   return "?" + new URLSearchParams(...init).toString();
 };
 
-export const createPosterLink = (path: string): string => {
-  return IMAGES_URL + "/t/p/w92" + path;
+export const createImageLink = (path: string): string => {
+  return IMAGES_URL + "/t/p/w500" + path;
 };
 
 export const formatTime = (time: number): string => {
