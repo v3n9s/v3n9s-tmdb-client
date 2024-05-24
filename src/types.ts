@@ -17,6 +17,10 @@ type Video = {
   official: boolean;
 };
 
+export type FavoriteMovie = {
+  id: number;
+};
+
 export type MovieBase = {
   id: number;
   original_title: string;

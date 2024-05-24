@@ -1,5 +1,6 @@
 import {
   Anchor,
+  Box,
   Card,
   Flex,
   Image,
@@ -13,6 +14,8 @@ import { createPosterLink } from "./utils";
 import Rating from "./Rating";
 import Star from "./Star";
 import type { MovieBase } from "./types";
+import { useFavorites } from "./FavoritesProvider";
+import { starBoxClass } from "./movie-card.css";
 
 const MovieCard: FC<{
   movie: MovieBase;
@@ -21,9 +24,15 @@ const MovieCard: FC<{
 }> = ({ movie, children, isBig = false }) => {
   const theme = useMantineTheme();
 
+  const { getFavorites, addToFavorites, removeFromFavorites } = useFavorites();
+
+  const isFavorite = getFavorites().some(
+    (favoriteMovie) => favoriteMovie.id === movie.id,
+  );
+
   return (
     <Card p="24" flex={isBig ? undefined : "482px 0 0"} radius="12">
-      <Flex>
+      <Flex gap="8">
         <Anchor
           component={Link}
           to={"/movies/" + String(movie.id)}
@@ -39,7 +48,7 @@ const MovieCard: FC<{
             m="0"
           />
         </Anchor>
-        <Stack justify="space-between" flex="200px 1 0" ml="16">
+        <Stack justify="space-between" flex="200px 1 0" ml="8">
           <Stack justify="start" gap="6">
             <Text
               component={Link}
@@ -63,7 +72,22 @@ const MovieCard: FC<{
           </Stack>
           {children}
         </Stack>
-        <Star color={theme.other.colors.grey300} />
+        <Box
+          className={starBoxClass}
+          onClick={() => {
+            (isFavorite ? removeFromFavorites : addToFavorites)({
+              id: movie.id,
+            });
+          }}
+        >
+          <Star
+            color={
+              isFavorite
+                ? theme.other.colors.purple500
+                : theme.other.colors.grey300
+            }
+          />
+        </Box>
       </Flex>
     </Card>
   );
