@@ -4,8 +4,6 @@ import MoviesPage from "./pages/MoviesPage";
 import MoviePage from "./pages/MoviePage";
 import FavoritesPage from "./pages/FavoritesPage";
 import NotFoundPage from "./pages/NotFoundPage";
-import { getSearchParamsString } from "./utils";
-import type { MovieSearchParams } from "./types";
 
 export const router = createBrowserRouter([
   {
@@ -22,16 +20,6 @@ export const router = createBrowserRouter([
       {
         path: "/movies/:id",
         element: <MoviePage />,
-        loader: ({ params }) => {
-          return fetch(
-            API_URL +
-              "/3/movie/" +
-              (params["id"] as string) +
-              getSearchParamsString({
-                append_to_response: "videos",
-              } satisfies MovieSearchParams),
-          );
-        },
       },
       {
         path: "/favorites",

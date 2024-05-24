@@ -1,5 +1,5 @@
 import { useMemo, type FC } from "react";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link } from "react-router-dom";
 import type { Movie } from "../types";
 import {
   Anchor,
@@ -18,9 +18,7 @@ import {
 import { createImageLink, formatDate, formatTime } from "../utils";
 import MovieCard from "../common/MovieCard";
 
-const MovieInfo: FC = () => {
-  const movie = useLoaderData() as Movie;
-
+const MovieInfo: FC<{ movie: Movie }> = ({ movie }) => {
   const theme = useMantineTheme();
 
   const breadCrumbs = useMemo(
