@@ -9,9 +9,14 @@ import {
 } from "@mantine/core";
 import type { DiscoverMovieResponseBody } from "./types";
 import { useRequest } from "./use-request";
+import MoviesListItem from "./MoviesListItem";
+import { addGenresToMovie } from "./utils";
+import { useGenres } from "./GenresProvider";
 
 const MoviesPage: FC = () => {
   const theme = useMantineTheme();
+
+  const genres = useGenres();
 
   const request = useMemo(() => new Request(API_URL + "/3/discover/movie"), []);
 
@@ -29,7 +34,14 @@ const MoviesPage: FC = () => {
           <Text>Empty</Text>
         </Center>
       ) : moviePageData ? (
-        <MoviesList movies={moviePageData.results} />
+        <MoviesList>
+          {moviePageData.results.map((movie) => (
+            <MoviesListItem
+              key={movie.id}
+              movie={addGenresToMovie(movie, genres)}
+            />
+          ))}
+        </MoviesList>
       ) : (
         <Center h="100%">
           <Loader color={theme.other.colors.purple600} />

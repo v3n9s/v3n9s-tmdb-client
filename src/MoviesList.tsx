@@ -1,21 +1,10 @@
-import type { FC } from "react";
-import type { MovieDiscovered } from "./types";
-import MoviesListItem from "./MoviesListItem";
+import type { FC, ReactNode } from "react";
 import { Flex } from "@mantine/core";
-import { useGenres } from "./GenresProvider";
-import { addGenresToMovie } from "./utils";
 
-const MoviesList: FC<{ movies: MovieDiscovered[] }> = ({ movies }) => {
-  const genres = useGenres();
-
+const MoviesList: FC<{ children: ReactNode }> = ({ children }) => {
   return (
     <Flex wrap="wrap" gap="16">
-      {movies.map((movie) => (
-        <MoviesListItem
-          key={movie.id}
-          movie={addGenresToMovie(movie, genres)}
-        />
-      ))}
+      {children}
     </Flex>
   );
 };
