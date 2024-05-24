@@ -2,7 +2,7 @@ import { useMemo, type FC } from "react";
 import MoviesListItem from "./MoviesListItem";
 import type { FavoriteMovie, Movie } from "./types";
 import { useRequest } from "./use-request";
-import { Center, Loader, useMantineTheme } from "@mantine/core";
+import { Card, Center, Loader, useMantineTheme } from "@mantine/core";
 
 const FavoriteMoviesListItem: FC<{ favoriteMovie: FavoriteMovie }> = ({
   favoriteMovie,
@@ -19,9 +19,11 @@ const FavoriteMoviesListItem: FC<{ favoriteMovie: FavoriteMovie }> = ({
   return movie ? (
     <MoviesListItem movie={movie} />
   ) : (
-    <Center>
-      <Loader color={theme.other.colors.purple600} />
-    </Center>
+    <Card w="482" h="218" radius="12">
+      <Center h="100%">
+        <Loader color={theme.other.colors.purple600} />
+      </Center>
+    </Card>
   );
 };
 
