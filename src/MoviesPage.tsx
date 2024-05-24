@@ -9,6 +9,7 @@ import {
   Loader,
   NativeSelect,
   NumberInput,
+  Pagination,
   Stack,
   Text,
   Title,
@@ -60,7 +61,7 @@ const MoviesPage: FC = () => {
     { label: "Vote count descending", value: "vote_count.desc" },
   ];
 
-  const [searchParams, setSearchParams] = useState<SearchParams>({});
+  const [searchParams, setSearchParams] = useState<SearchParams>({ page: "1" });
 
   const setSearchParamsDebounced = useDebouncedCallback(setSearchParams, 500);
 
@@ -181,14 +182,28 @@ const MoviesPage: FC = () => {
           </Stack>
         </Center>
       ) : moviePageData ? (
-        <MoviesList>
-          {moviePageData.results.map((movie) => (
-            <MoviesListItem
-              key={movie.id}
-              movie={addGenresToMovie(movie, genres)}
-            />
-          ))}
-        </MoviesList>
+        <Stack gap="24">
+          <MoviesList>
+            {moviePageData.results.map((movie) => (
+              <MoviesListItem
+                key={movie.id}
+                movie={addGenresToMovie(movie, genres)}
+              />
+            ))}
+          </MoviesList>
+          <Pagination
+            total={moviePageData.total_pages}
+            color={theme.other.colors.purple500}
+            style={{ alignSelf: "end" }}
+            value={Number(searchParams.page)}
+            siblings={2}
+            onChange={(page) => {
+              setSearchParams((prev) =>
+                handleValueChange(prev, "page", String(page)),
+              );
+            }}
+          />
+        </Stack>
       ) : (
         <Center h="100%">
           <Loader color={theme.other.colors.purple600} />
