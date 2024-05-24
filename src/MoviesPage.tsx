@@ -5,6 +5,7 @@ import {
   Center,
   Container,
   Flex,
+  Image,
   Loader,
   NativeSelect,
   NumberInput,
@@ -172,7 +173,12 @@ const MoviesPage: FC = () => {
         </Center>
       ) : moviePageData?.results.length === 0 ? (
         <Center>
-          <Text>Empty</Text>
+          <Stack align="center" gap="16">
+            <Image src="/public/movies-empty.svg" w="310" h="250" m="0" />
+            <Text fz="20" lh="1.1" fw="700">
+              We don&apos;t have such movies, look for another one
+            </Text>
+          </Stack>
         </Center>
       ) : moviePageData ? (
         <MoviesList>
