@@ -22,7 +22,7 @@ const MovieCard: FC<{
   const theme = useMantineTheme();
 
   return (
-    <Card p="24" flex="400px 1 0" radius="12">
+    <Card p="24" flex={isBig ? undefined : "482px 0 0"} radius="12">
       <Flex>
         <Anchor
           component={Link}
