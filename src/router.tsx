@@ -1,9 +1,9 @@
 import { createBrowserRouter, redirect } from "react-router-dom";
 import App from "./App";
-import MoviesPage from "./MoviesPage";
-import MoviePage from "./MoviePage";
-import FavoritesPage from "./FavoritesPage";
-import NotFoundPage from "./NotFoundPage";
+import MoviesPage from "./pages/MoviesPage";
+import MoviePage from "./pages/MoviePage";
+import FavoritesPage from "./pages/FavoritesPage";
+import NotFoundPage from "./pages/NotFoundPage";
 import { getSearchParamsString } from "./utils";
 import type { MovieSearchParams } from "./types";
 

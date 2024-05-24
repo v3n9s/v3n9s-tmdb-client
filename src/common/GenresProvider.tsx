@@ -9,9 +9,9 @@ import type {
   Genre,
   GenreMovieListResponseBody,
   GenreMovieListSearchParams,
-} from "./types";
+} from "../types";
 import { useRequest } from "./use-request";
-import { getSearchParamsString } from "./utils";
+import { getSearchParamsString } from "../utils";
 import { Center, Loader, useMantineTheme } from "@mantine/core";
 
 const genresContext = createContext(null as unknown as Genre[]);

@@ -6,7 +6,7 @@ import {
   type FC,
   type ReactNode,
 } from "react";
-import type { FavoriteMovie } from "./types";
+import type { FavoriteMovie } from "../types";
 
 type FavoritesContext = [FavoriteMovie[], Dispatch<FavoriteMovie[]>];
 

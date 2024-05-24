@@ -1,5 +1,5 @@
 import type { FC } from "react";
-import type { Genre, MovieBase } from "./types";
+import type { Genre, MovieBase } from "../types";
 import { Text, useMantineTheme } from "@mantine/core";
 import MovieCard from "./MovieCard";
 

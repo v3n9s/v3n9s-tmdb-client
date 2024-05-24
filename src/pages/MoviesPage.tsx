@@ -1,5 +1,5 @@
 import { useMemo, useState, type ChangeEvent, type FC } from "react";
-import MoviesList from "./MoviesList";
+import MoviesList from "../common/MoviesList";
 import {
   Button,
   Center,
@@ -18,12 +18,12 @@ import {
 import type {
   DiscoverMovieResponseBody,
   DiscoverMovieSearchParams,
-} from "./types";
-import { useRequest } from "./use-request";
-import MoviesListItem from "./MoviesListItem";
-import { addGenresToMovie, getSearchParamsString } from "./utils";
-import { useGenres } from "./GenresProvider";
-import { inputLabelClass } from "./movies-page.css";
+} from "../types";
+import { useRequest } from "../common/use-request";
+import MoviesListItem from "../common/MoviesListItem";
+import { addGenresToMovie, getSearchParamsString } from "../utils";
+import { useGenres } from "../common/GenresProvider";
+import { inputLabelClass } from "../styles/movies-page.css";
 import { useDebouncedCallback } from "@mantine/hooks";
 
 type SearchParams = {

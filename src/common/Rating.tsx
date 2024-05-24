@@ -1,7 +1,7 @@
 import { Flex, Text, useMantineTheme } from "@mantine/core";
 import type { FC } from "react";
 import Star from "./Star";
-import type { Movie } from "./types";
+import type { Movie } from "../types";
 
 const Rating: FC<Pick<Movie, "vote_average" | "vote_count">> = ({
   vote_average,

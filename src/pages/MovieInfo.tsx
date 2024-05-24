@@ -1,6 +1,6 @@
 import { useMemo, type FC } from "react";
 import { Link, useLoaderData } from "react-router-dom";
-import type { Movie } from "./types";
+import type { Movie } from "../types";
 import {
   Anchor,
   Avatar,
@@ -15,8 +15,8 @@ import {
   Text,
   useMantineTheme,
 } from "@mantine/core";
-import { createImageLink, formatDate, formatTime } from "./utils";
-import MovieCard from "./MovieCard";
+import { createImageLink, formatDate, formatTime } from "../utils";
+import MovieCard from "../common/MovieCard";
 
 const MovieInfo: FC = () => {
   const movie = useLoaderData() as Movie;

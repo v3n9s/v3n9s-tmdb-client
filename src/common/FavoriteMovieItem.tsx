@@ -1,6 +1,6 @@
 import { useMemo, type FC } from "react";
 import MoviesListItem from "./MoviesListItem";
-import type { FavoriteMovie, Movie } from "./types";
+import type { FavoriteMovie, Movie } from "../types";
 import { useRequest } from "./use-request";
 import { Card, Center, Loader, useMantineTheme } from "@mantine/core";
 

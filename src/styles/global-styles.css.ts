@@ -1,5 +1,5 @@
 import { globalFontFace, globalStyle } from "@vanilla-extract/css";
-import { theme } from "./theme";
+import { theme } from "../theme";
 
 globalFontFace("Inter", {
   src: "url(/Inter.ttf)",

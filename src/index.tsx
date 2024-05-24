@@ -1,5 +1,5 @@
 import "@mantine/core/styles.css";
-import "./global-styles.css";
+import "./styles/global-styles.css";
 
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";

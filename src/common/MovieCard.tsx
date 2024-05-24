@@ -10,12 +10,12 @@ import {
 } from "@mantine/core";
 import type { FC, ReactNode } from "react";
 import { Link } from "react-router-dom";
-import { createImageLink } from "./utils";
+import { createImageLink } from "../utils";
 import Rating from "./Rating";
 import Star from "./Star";
-import type { MovieBase } from "./types";
+import type { MovieBase } from "../types";
 import { useFavorites } from "./FavoritesProvider";
-import { starBoxClass } from "./movie-card.css";
+import { starBoxClass } from "../styles/movie-card.css";
 
 const MovieCard: FC<{
   movie: MovieBase;

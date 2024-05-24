@@ -10,9 +10,9 @@ import {
   useMantineTheme,
 } from "@mantine/core";
 import { useState, type FC } from "react";
-import MoviesList from "./MoviesList";
-import { useFavorites } from "./FavoritesProvider";
-import FavoriteMoviesListItem from "./FavoriteMovieItem";
+import MoviesList from "../common/MoviesList";
+import { useFavorites } from "../common/FavoritesProvider";
+import FavoriteMoviesListItem from "../common/FavoriteMovieItem";
 import { Link } from "react-router-dom";
 
 const FavoritesPage: FC = () => {

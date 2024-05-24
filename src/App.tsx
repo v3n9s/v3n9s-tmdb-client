@@ -2,8 +2,8 @@ import type { FC } from "react";
 import { Outlet } from "react-router-dom";
 import NavBar from "./NavBar";
 import { Container, Flex, useMantineTheme } from "@mantine/core";
-import GenresProvider from "./GenresProvider";
-import FavoritesProvider from "./FavoritesProvider";
+import GenresProvider from "./common/GenresProvider";
+import FavoritesProvider from "./common/FavoritesProvider";
 
 const App: FC = () => {
   const theme = useMantineTheme();
