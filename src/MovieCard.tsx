@@ -30,7 +30,11 @@ const MovieCard: FC<{
           flex={(isBig ? "250px" : "119px") + " 0 0"}
         >
           <Image
-            src={createPosterLink(movie.poster_path)}
+            src={
+              movie.poster_path !== null
+                ? createPosterLink(movie.poster_path)
+                : "/no-poster.svg"
+            }
             h={isBig ? "352" : "170"}
             m="0"
           />
@@ -50,7 +54,7 @@ const MovieCard: FC<{
               {movie.original_title}
             </Text>
             <Text c={theme.other.colors.grey600} m="0">
-              {movie.release_date.slice(0, 4)}
+              {movie.release_date?.slice(0, 4)}
             </Text>
             <Rating
               vote_average={movie.vote_average}

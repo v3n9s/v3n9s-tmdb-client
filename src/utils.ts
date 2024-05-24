@@ -24,7 +24,7 @@ export const formatDate = (date: string): string => {
 };
 
 export const addGenresToMovie = (
-  { genre_ids, ...movie }: MovieDiscovered,
+  { genre_ids = [], ...movie }: MovieDiscovered,
   genres: Genre[],
 ): MovieBaseWithGenres => {
   return {

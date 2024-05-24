@@ -39,7 +39,10 @@ const MovieInfo: FC = () => {
       },
       {
         name: "Premiere",
-        value: formatDate(movie.release_date),
+        value:
+          movie.release_date !== undefined
+            ? formatDate(movie.release_date)
+            : "unknown",
       },
       {
         name: "Budget",
