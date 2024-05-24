@@ -9,7 +9,6 @@ import {
   Container,
   Divider,
   Flex,
-  Image,
   NumberFormatter,
   Stack,
   Table,
@@ -17,7 +16,7 @@ import {
   useMantineTheme,
 } from "@mantine/core";
 import { createPosterLink, formatDate, formatTime } from "./utils";
-import Rating from "./Rating";
+import MovieCard from "./MovieCard";
 
 const MovieInfo: FC = () => {
   const movie = useLoaderData() as Movie;
@@ -85,56 +84,28 @@ const MovieInfo: FC = () => {
             </Anchor>
           ))}
         </Breadcrumbs>
-        <Card radius="12" p="24">
-          <Flex>
-            <Image
-              src={createPosterLink(movie.poster_path)}
-              h="352"
-              flex="250px 0 0"
-              m="0"
-            />
-            <Stack justify="space-between" flex="200px 1 0" ml="16">
-              <Stack justify="start" gap="6">
-                <Text
-                  c={theme.other.colors.purple500}
-                  fz="20"
-                  fw="600"
-                  lh="1.2"
-                  m="0"
-                >
-                  {movie.original_title}
-                </Text>
-                <Text c={theme.other.colors.grey600} m="0">
-                  {movie.release_date.slice(0, 4)}
-                </Text>
-                <Rating
-                  vote_average={movie.vote_average}
-                  vote_count={movie.vote_count}
-                />
-              </Stack>
-              <Table withRowBorders={false}>
-                <Table.Tbody>
-                  {tableData.map(({ name, value }) => (
-                    <Table.Tr key={name}>
-                      <Table.Td
-                        c={theme.other.colors.grey600}
-                        w="140"
-                        fz="16"
-                        p="0"
-                        pt="5"
-                      >
-                        {name}
-                      </Table.Td>
-                      <Table.Td p="0" pl="8" pt="6" fz="16" fw="500">
-                        {value}
-                      </Table.Td>
-                    </Table.Tr>
-                  ))}
-                </Table.Tbody>
-              </Table>
-            </Stack>
-          </Flex>
-        </Card>
+        <MovieCard movie={movie} isBig={true}>
+          <Table withRowBorders={false}>
+            <Table.Tbody>
+              {tableData.map(({ name, value }) => (
+                <Table.Tr key={name}>
+                  <Table.Td
+                    c={theme.other.colors.grey600}
+                    w="140"
+                    fz="16"
+                    p="0"
+                    pt="5"
+                  >
+                    {name}
+                  </Table.Td>
+                  <Table.Td p="0" pl="8" pt="6" fz="16" fw="500">
+                    {value}
+                  </Table.Td>
+                </Table.Tr>
+              ))}
+            </Table.Tbody>
+          </Table>
+        </MovieCard>
         <Card radius="12" p="24">
           <Stack gap="20">
             <Stack gap="16">

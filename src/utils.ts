@@ -1,3 +1,5 @@
+import type { Genre, MovieBaseWithGenres, MovieDiscovered } from "./types";
+
 export const getSearchParamsString = (
   ...init: ConstructorParameters<typeof URLSearchParams>
 ): string => {
@@ -19,4 +21,16 @@ export const formatTime = (time: number): string => {
 
 export const formatDate = (date: string): string => {
   return new Date(date).toLocaleDateString("en-US", { dateStyle: "long" });
+};
+
+export const addGenresToMovie = (
+  { genre_ids, ...movie }: MovieDiscovered,
+  genres: Genre[],
+): MovieBaseWithGenres => {
+  return {
+    ...movie,
+    genres: genre_ids.map(
+      (genreId) => genres.find((genre) => genre.id === genreId) as Genre,
+    ),
+  };
 };
