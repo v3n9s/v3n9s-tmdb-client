@@ -24,11 +24,12 @@ const NotFoundPage: FC = () => {
           to="/movies"
           bg={theme.other.colors.purple500}
           c={theme.other.colors.white}
-          w="103"
+          px="20"
           h="40"
           mt="13"
           radius="8"
           fw="400"
+          td="none"
         >
           Go Home
         </Button>
