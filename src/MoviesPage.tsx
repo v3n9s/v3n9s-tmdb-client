@@ -172,6 +172,10 @@ const MoviesPage: FC = () => {
         <Center>
           <Text>smth went wrong</Text>
         </Center>
+      ) : moviePageData && "status_message" in moviePageData ? (
+        <Center>
+          <Text>{moviePageData.status_message as string}</Text>
+        </Center>
       ) : moviePageData?.results.length === 0 ? (
         <Center>
           <Stack align="center" gap="16">
@@ -192,7 +196,7 @@ const MoviesPage: FC = () => {
             ))}
           </MoviesList>
           <Pagination
-            total={moviePageData.total_pages}
+            total={Math.min(500, moviePageData.total_pages)}
             color={theme.other.colors.purple500}
             style={{ alignSelf: "end" }}
             value={Number(searchParams.page)}
